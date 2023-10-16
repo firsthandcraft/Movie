@@ -1,0 +1,242 @@
+//@extend
+//@import
+//Mixins / @include
+//오퍼레이터(+,-,*,/)
+
+//1. Variables -변수 선언 - $표시가 변수 선언이다. 
+$primary:crimson;
+$secondary:royalblue;
+
+//2. 선택자 중첩(Nesting) -중첩선택이 된다.
+body{
+    font: 400 30px '나눔고딕',sans-serif;
+}
+a{text-decoration:none;}
+.sns{
+    list-style:none;
+    // li
+    li{
+        border:1px solid $primary;
+        padding:10px;
+        a{
+            color:$secondary; 
+        }
+    }//li
+}
+h3{
+    font-size:20px;
+    text-align:center;
+    span{
+        color:$primary;
+        &:hover{//&를 쓰면  span이 그대로 들어간다.
+            color:$secondary;
+        }
+    }
+}
+//선택자 사용연습
+$textcolor:pink;
+//a링크는 hover - visited가 있다. 
+//중첩 안에서 & 키워드는 상위(부모) 선택자 참조
+.textLink{
+    color:$textcolor;
+    &:visited{
+        color:red;
+    }
+    &:hover{
+        color:violet;
+    }
+    &:active{
+        color:orange;
+    }
+}
+section{
+    border:1px solid saddlebrown;
+    p{
+        font-size:20px;
+        text-align:center;
+    }
+    small{
+        font-size:12px;text-align: center;
+    }
+}
+
+//3.  @mixin 함수 같다.코드 집합
+@mixin test{
+    width:100px;height:20px;border:1px solid yellowgreen;
+}
+@mixin clear{
+    &:after{content:"atfermixin";margin-left:30px;color:red;font-size:10px;}
+}
+@mixin background($color){
+    background: $color;
+}
+@mixin box($w,$h){
+    width:$w;
+    height:$h;;
+}
+
+div.mixin{
+    &.test{
+    @include test;
+    @include clear;
+    @include background(blue);
+    @include box(40px, 100px);
+    }
+}
+//mixin2
+@mixin clear{
+    &:after {content:"";display:block;clear:both;}
+}
+.mixintest{ border:6px dotted red;background-color:hotpink;
+    @include clear;
+    >div{float: left;}
+}
+@mixin ellipses($w){overflow:hidden;display:block;width:$w;text-overflow: ellipsis;white-space: nowrap;}//말줄임표 만들기
+.ellipses{@include ellipses(100px);}
+
+@mixin ellipses2($line,$w,$h){overflow:hidden;display:-webkit-box; -webkit-line-clamp: $line;width:$w;height:$h;-webkit-box-orient:vertical;text-overflow:ellipsis;}
+.ellipses2{@include ellipses2(2,300px ,66px )}
+
+
+//보간법
+$inter:  interpolation;
+
+
+@mixin bor($position,$wid,$color){
+    border-#{$position}:$wid solid $color;
+}
+
+.#{$inter} {
+    background-color:palegreen;
+    @include bor(bottom,10px,green)
+}
+
+// @at-root (중첩 벗어나기)
+// 중첩에서 벗어나고 싶을 때 @at-root 키워드를 사용합니다.
+// 중첩 안에서 생성하되 중첩 밖에서 사용해야 경우에 유용합니다.
+
+.atr{
+        $ww: 100px;
+        $hh :100px;
+        //여기 atr 안에서 만든 변수를 밖에 서 사용하고 싶을때
+        width:200px;
+        height:200px;
+        border:1px solid sandybrown;
+        @at-root .ex {
+        width: $ww;
+        height: $hh;
+        border:1px solid firebrick;
+    }
+}
+
+//for문
+@for $i from 1 to 6{//1-5까지
+    .list li.ico#{$i}{
+        background:url(../img/ico#{$i}.png) top left;
+        font-size:15px;
+    }
+    .list li:nth-child(#{$i})::before{content:"제목#{$i}"; color:pink;}
+}
+
+//each문
+@each $var in cancel, favorite, star{
+    .ico_#{$var}{
+        background:url(../img/#{$var}.svg) no-repeat;
+    }
+}
+$heading :(
+    h1: 30px,
+    h2: 20px,
+    h3: 15px
+);
+@each $ele, $fs in $heading{
+    #{$ele}{//ele가 h1,h2,h3으로 변경된다.
+        font-size:$fs;
+    }
+}
+
+//extend -- 익숙해지고 사용하길
+%name{font-size:13px;color: rosybrown;}
+.fs20{font-size:20px;}
+// mixin은 원하는 옵션을 파라미터 값에 넣어줄수 잇다.
+@mixin name($bold,$color){font-weight:$bold;background:$color;}
+.a{@extend %name; @include name(bold,gray)}
+// extend는 강제적 모든값을 다 넣는다.
+.b{@extend %name;}
+//클래스도 넣을수 있다.
+.c{@extend .fs20;}
+// 
+.visual{
+    background-color: pink;height:10px;
+    article{@extend %m0auto; background-color: rgb(253, 229, 233);height:5px;}
+}
+.main{
+    background-color: purple;height:10px;
+    article{@extend %m0auto;background-color: rgb(179, 76, 179);height:5px;}
+}
+.footer{
+    background-color: palegoldenrod;height:10px;
+    article{@extend %m0auto;background-color: rgb(247, 245, 217);height:5px;}
+}
+%m0auto{width:300px;height:100%; margin:0 auto;}
+
+// 조건문
+@mixin btn_radius($h,$radius:true){padding:0 20px;height:$h;;line-height:$h;text-align:center;background:yellowgreen;color:yellow;
+    @if $radius{
+        border-radius: $h / 2;
+    } @else{
+        border:9px solid darkcyan;
+    }
+}
+.btn{@include btn_radius(30px,false);}
+
+@mixin position($x,$y,$z){position:absolute;left:$x;top:$y;z-index:$z;
+    @if $x==50% and $y == 50%{
+        transform: translate(-50%,-50%);
+    } @else if $x == 50%{
+        transform: translateX(-50%);
+    }@else if $y == 50%{
+        transform: translateY(-50%);
+    }
+}
+.fortest{width: 300px;height: 300px;background: thistle; @include position(50%, null, 2)}
+
+//position활용
+//기존 position
+// .positionCenter{position:absolute;width:300px;height:300px;border:3px dotted darkorange;left:50%;}
+
+@mixin box_center($w){position:absolute;left:50%;top:50%;width:$w;transform:translate(-50%, -50%);}
+
+@mixin position($x,$y,$z,$w){position:absolute;left:$x;top:$y;z-index:$z;width:$w;
+    @if $x == 50% and y == 50%{
+        transform:  translate(-50%,-50%);
+    } @else if $x == 50%{
+        transform: translateX(-50%);
+    } @else if $y == 50% and $y == 50%{
+        transform: translateY(-50%);
+    }
+}
+
+div{
+    &.positionCenter{@include box_center(500px);height:200px;border:10px solid darkblue;}
+    &.po{@include position(50%,50%,2,500px);height:100px;border:10px solid salmon;}
+    &.po1{@include position(50px,50%,2,500px);height:100px;border:10px solid rgb(247, 77, 58);}
+}
+
+// CSS position을 사스 믹스인으로 응용하기
+@mixin box_center($w){position: absolute;left:50%;top:50%;width: $w;transform:translate(-50%,-50%);};
+
+div.po3{@include box-center(500px);height:200px;border:3px solid darkolivegreen;}
+
+@mixin position2($x,$y,$z,$w){position:absolute;left:$x ;top:$y ;z-index:$z ;width:$w ;
+    @if $x == 50%{
+        transform: translateX(-50%);
+    } @else if $y == 50%{
+        transform: translateY(-50%);
+    } @else if$x == 50% and $y == 50%{
+        transform: translate(-50%,-50%);
+    }
+}
+
+div.po4{@include  position2(50%,0 , 2, 300px); height:100px; border:4px solid darkseagreen;}
+div.po5{@include  position2(50px,50% , 2, 300px); height:100px; border:4px solid rgb(58, 190, 58);}
