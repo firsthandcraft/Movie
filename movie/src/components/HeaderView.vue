@@ -1,19 +1,18 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+import "../assets/header.scss";
+
+ </script>
 <template>
-  <div>
-    <img src="" alt="">
-    <ul class="menu">
-      <li><a href="#">예매</a></li>
-      <li><a href="#">영화</a></li>
-      <li><a href="#">극장</a></li>
-      <li><a href="#">이벤트</a></li>
-    </ul>
-    <ul class="menu ">
-      <li><a href="#">로그인</a></li>
-      <li><a href="#">마이페이지</a></li>
-    </ul>
+  <div class="headerWrap">
+    <header>
+      <RouterLink to="/"><p class="logo"><img src="@/img/logo.svg" alt="logo"></p></RouterLink>
+      <ul class="menu">
+        <li> <RouterLink to="/"><p >무비차트</p></RouterLink></li>
+        <li> <RouterLink to="/"><p >상영예정작</p></RouterLink></li>
+      </ul>
+    </header>
   </div>
 </template>
 <style lang="scss">
-  .menu{display:flex;flex-direction: column;justify-content: center;}
-  .menu li{margin:20px 0;}
 </style>

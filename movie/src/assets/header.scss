@@ -1,0 +1,38 @@
+@import "style";
+
+$fontSize: 14px;
+@mixin navFont{
+    font: 300 $fontSize sans-serif;
+    color: $secondary;
+    &:hover{//&를 쓰면  span이 그대로 들어간다.
+        color:$fontColor;
+    }
+}
+@mixin menu($direction){
+    display:flex;flex-direction:$direction;justify-content: center;align-items: center; 
+    li{
+        width: inherit;
+        @include navFont;
+        a{padding: 20px 20px;}
+    }
+}
+.headerWrap{
+    position:fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    header{
+        display:flex;
+        .menu{
+            @include menu(row)
+        }
+    }
+}
+nav{
+    width:120px;
+    .menu{
+        width:inherit;
+        @include menu(column);
+        
+    }
+}

@@ -4,14 +4,31 @@
 //오퍼레이터(+,-,*,/)
 
 //1. Variables -변수 선언 - $표시가 변수 선언이다. 
-$primary:crimson;
-$secondary:royalblue;
+$primary:#E20000;
+$secondary:#c4c4c4;
+$back:#111;
+$fontColor:#fff;
 
 //2. 선택자 중첩(Nesting) -중첩선택이 된다.
 body{
     font: 400 30px '나눔고딕',sans-serif;
+    background:$back;
 }
-a{text-decoration:none;}
+.bodyWrap{
+    position: relative; 
+ 
+    color:$secondary;
+    margin: 0 auto;
+}
+a{text-decoration:none;display:block;}
+select{color:$secondary;
+	background: none;
+	border: none;
+	color: $secondary;
+	position: relative;
+  }
+  
+.logo{width: 120px;padding: 20px 20px 20px 0;}
 .sns{
     list-style:none;
     // li

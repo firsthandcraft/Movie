@@ -1,6 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import HeaderView from './components/HeaderView.vue'
+import './assets/reset.css'
+import './assets/style.scss'
 </script>
 
 <template>
@@ -11,8 +13,6 @@ import HeaderView from './components/HeaderView.vue'
 </template>
 
 <style lang="scss">
-$back:#222;
-$secondary:royalblue;
-.bodyWrap{background:$back;height:100vh;}
+
 
 </style>
