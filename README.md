@@ -17,7 +17,7 @@ TMDB API 를 이용한 영화 정보 사이트
 <img width="1511" alt="스크린샷 2024-04-11 오후 6 03 22" src="https://github.com/firsthandcraft/Movie/assets/97497153/fe040ef7-1c08-4ddb-9c7c-300cdb45e9f4">
 
 #### detail
-<img width="1512" alt="스크린샷 2024-04-11 오후 6 04 18" src="https://github.com/firsthandcraft/Movie/assets/97497153/ce121ecb-bda9-4ff0-b734-806f6f35f9f8">
+<img width="1508" alt="스크린샷 2024-04-11 오후 6 04 59" src="https://github.com/firsthandcraft/Movie/assets/97497153/2b431e3f-2b0a-4a5d-8e8f-4e8c4c363fbd">
 
 
 #서버 실행시 
