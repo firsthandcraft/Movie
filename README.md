@@ -6,7 +6,7 @@ TMDB API 를 이용한 영화 정보 사이트
 -vue 3.0(vite)
 -scss
 
-[TMDB API 사용하는 법 _블로그 기록](https://handcraftdesign.tistory.com/46)
+[TMDB API 사용하는 법에 관한 기록](https://handcraftdesign.tistory.com/46)
 
 #### main
  -- 인기순
