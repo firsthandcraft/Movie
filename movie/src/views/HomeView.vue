@@ -4,12 +4,16 @@ import {useMovieStore} from '@/stores/movie.js'
 import '../assets/main.scss';
 
 const movieStore = useMovieStore();
+let sortValue="popularity.desc";
 onBeforeMount(()=>{
 movieStore.getMoviesList();
 })
-
 const getMovie=(num)=>{
-  movieStore.getMoviesList(num);
+  movieStore.getMoviesList(num,sortValue);
+}
+const handleChange = (event) => {
+  sortValue = event.target.value;
+  getMovie(1);
 }
 
 </script>
@@ -19,10 +23,9 @@ const getMovie=(num)=>{
     <div class="mainWrap">
       <nav>
         <ul class="menu">
-          <li> <RouterLink to="/"><p >예매</p></RouterLink></li>
           <li> <RouterLink to="/"><p >영화</p></RouterLink></li>
-          <li> <RouterLink to="/"><p >극장</p></RouterLink></li>
-          <li> <RouterLink to="/"><p >이벤트</p></RouterLink></li>
+          <li> <RouterLink to="/"><p >예매</p></RouterLink></li>
+   
         </ul>
         <ul class="menu ">
           <li><a href="#">로그인</a></li>
@@ -31,9 +34,9 @@ const getMovie=(num)=>{
       </nav>
       <div class="contentWrap">
         <div class="viewOption"> 
-          <select name="languages" id="lang">
-            <option value="javascript">최신순</option>
-            <option value="php">별점순</option>
+          <select name="languages" @change="handleChange">
+            <option value="popularity.desc">인기순</option>
+            <option value="release_date.desc">최신순</option>
           </select>
         </div>
         <ul>
