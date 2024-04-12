@@ -6,7 +6,7 @@ TMDB API 를 이용한 영화 정보 사이트
 -vue 3.0(vite)
 -scss
 - pagenation 라이브러리 추가 [vue-awesome-paginate](https://github.com/peshanghiwa/vue-awesome-paginate)
-[TMDB API 사용하는 법에 관한 기록](https://handcraftdesign.tistory.com/46)
+- [TMDB API 사용하는 법에 관한 기록](https://handcraftdesign.tistory.com/46)
 
 #### main
  -- 인기순
