@@ -10,11 +10,12 @@ TMDB API 를 이용한 영화 정보 사이트
 
 #### main
  -- 인기순
+ 
 <img width="918" alt="스크린샷 2024-04-12 오후 2 49 05" src="https://github.com/firsthandcraft/Movie/assets/97497153/005fd7d6-395e-4aed-bc7c-f170490e5fa3">
 
 -- 최신순
 
-<img width="1511" alt="스크린샷 2024-04-11 오후 6 03 22" src="https://github.com/firsthandcraft/Movie/assets/97497153/fe040ef7-1c08-4ddb-9c7c-300cdb45e9f4">
+<img width="865" alt="스크린샷 2024-04-12 오후 2 51 18" src="https://github.com/firsthandcraft/Movie/assets/97497153/77e276db-b0bb-46b7-8ee5-577ca7fb11ae">
 
 #### detail
 <img width="1508" alt="스크린샷 2024-04-11 오후 6 04 59" src="https://github.com/firsthandcraft/Movie/assets/97497153/2b431e3f-2b0a-4a5d-8e8f-4e8c4c363fbd">
