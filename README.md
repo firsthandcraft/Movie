@@ -20,6 +20,8 @@ TMDB API 를 이용한 영화 정보 사이트
 #### detail
 <img width="1508" alt="스크린샷 2024-04-11 오후 6 04 59" src="https://github.com/firsthandcraft/Movie/assets/97497153/2b431e3f-2b0a-4a5d-8e8f-4e8c4c363fbd">
 
+<img width="760" alt="스크린샷 2024-04-12 오후 2 52 06" src="https://github.com/firsthandcraft/Movie/assets/97497153/421cc2ad-7bdf-4bcc-bd18-9add020cace3">
+
 
 #서버 실행시 
 01.폴더에서 
