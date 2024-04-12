@@ -48,7 +48,7 @@ const currentPage = ref(1);
             <option value="release_date.desc">최신순</option>
           </select>
         </div>
-        <ul>
+        <ul class="movie">
           <li v-for="movie in movieStore.movie" :key="movie.id">
             <router-link :to="`/detail/${movie.id}`">
             <img :src="`https://image.tmdb.org/t/p/w500/${ movie.poster_path }`" alt="">
@@ -57,7 +57,6 @@ const currentPage = ref(1);
           </li>
         </ul>
         <div aria-label="Page navigation example">
-            eddd
             <vue-awesome-paginate
                 :total-items="500"
                 v-model="currentPage"
